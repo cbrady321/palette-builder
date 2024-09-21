@@ -207,10 +207,37 @@ class ColorPalette {
 
         document.body.appendChild(colorPicker);
 
-        const rect = patch.getBoundingClientRect();
-        colorPicker.style.position = 'absolute';
-        colorPicker.style.left = `${rect.left}px`;
-        colorPicker.style.top = `${rect.bottom + 5}px`;
+        // Position the color picker below the patch using Popper.js
+        Popper.createPopper(patch, colorPicker, {
+            placement: 'bottom-start',
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 5],
+                    },
+                },
+                {
+                    name: 'preventOverflow',
+                    options: {
+                        padding: 10,
+                    },
+                },
+            ],
+        });
+
+        // Add event listener to close the color picker when clicking outside
+        const closeColorPicker = (e) => {
+            if (!colorPicker.contains(e.target) && !patch.contains(e.target)) {
+                document.body.removeChild(colorPicker);
+                document.removeEventListener('click', closeColorPicker);
+            }
+        };
+
+        // Delay adding the event listener to prevent immediate closing
+        setTimeout(() => {
+            document.addEventListener('click', closeColorPicker);
+        }, 0);
     }
 
     updatePatchColor(patch, newColor, colorName = '') {

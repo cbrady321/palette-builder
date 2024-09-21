@@ -3,7 +3,14 @@
     "name": "Main Room",
     "colors": [
       "rgb(0, 0, 0)",
-      "rgb(20, 33, 61)",
+      {
+        "color": "rgb(20, 33, 61)",
+        "name": "Midnight Express"
+      },
+      {
+        "color": "rgb(153, 11, 20)",
+        "name": "Heritage Red"
+      },
       "rgb(175, 19, 7)",
       {
         "color": "rgb(246, 246, 237)",
@@ -101,19 +108,48 @@
   {
     "name": "Master Bedroom",
     "colors": [
-      "rgb(175, 19, 7)",
+      {
+        "color": "rgb(47, 57, 75)",
+        "name": "Deep Royal"
+      },
+      {
+        "color": "rgb(61, 39, 0)",
+        "name": "Floor"
+      },
+      {
+        "color": "rgb(24, 94, 130)",
+        "name": "Bermuda Blue"
+      },
+      {
+        "color": "rgb(192, 193, 190)",
+        "name": "Gray"
+      },
+      {
+        "color": "rgb(244, 246, 241)",
+        "name": "Chantilly Lace"
+      },
       {
         "color": "rgb(246, 246, 237)",
         "name": "Simply White"
-      },
-      {
-        "color": "rgb(237, 238, 235)",
-        "name": "White"
-      },
-      {
-        "color": "rgb(247, 245, 235)",
-        "name": "Mountain Peak White"
       }
+    ]
+  },
+  {
+    "name": "Office",
+    "colors": [
+      {
+        "color": "rgb(20, 33, 61)",
+        "name": "Midnight Express"
+      },
+      {
+        "color": "rgb(244, 246, 241)",
+        "name": "Chantilly Lace"
+      },
+      {
+        "color": "rgb(192, 193, 190)",
+        "name": "Gray"
+      },
+      "rgb(0, 0, 0)"
     ]
   }
 ]
