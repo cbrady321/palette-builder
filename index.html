@@ -40,5 +40,18 @@
     <script src="utils.js"></script>
     <script src="ColorPalette.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Load default configuration
+        fetch('default-config.json')
+            .then(response => response.json())
+            .then(data => {
+                window.defaultConfig = data;
+                initializeApp();
+            })
+            .catch(error => {
+                console.error('Error loading default configuration:', error);
+                initializeApp();
+            });
+    </script>
 </body>
 </html>

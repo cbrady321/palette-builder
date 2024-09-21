@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Main Room",
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(20, 33, 61)",
+      "rgb(175, 19, 7)",
+      {
+        "color": "rgb(246, 246, 237)",
+        "name": "Simply White"
+      },
+      {
+        "color": "rgb(237, 238, 235)",
+        "name": "White"
+      },
+      "rgb(229, 229, 229)",
+      {
+        "color": "rgb(247, 245, 235)",
+        "name": "Mountain Peak White"
+      }
+    ]
+  },
+  {
+    "name": "Hallways",
+    "colors": [
+      {
+        "color": "rgb(246, 246, 237)",
+        "name": "Simply White"
+      },
+      {
+        "color": "rgb(244, 246, 241)",
+        "name": "Chantilly Lace"
+      },
+      {
+        "color": "rgb(237, 238, 235)",
+        "name": "White"
+      },
+      {
+        "color": "rgb(247, 244, 226)",
+        "name": "Easter Lily"
+      },
+      {
+        "color": "rgb(248, 247, 232)",
+        "name": "Mascarpone"
+      },
+      {
+        "color": "rgb(250, 243, 224)",
+        "name": "Vanilla Ice Cream"
+      },
+      "rgb(0, 0, 0)"
+    ]
+  },
+  {
+    "name": "Gabriel",
+    "colors": [
+      {
+        "color": "rgb(247, 245, 235)",
+        "name": "Mountain Peak White"
+      },
+      {
+        "color": "rgb(246, 246, 237)",
+        "name": "Simply White"
+      },
+      "rgb(255, 255, 255)",
+      "rgb(229, 229, 229)"
+    ]
+  },
+  {
+    "name": "Ariel",
+    "colors": [
+      {
+        "color": "rgb(211, 241, 240)",
+        "name": "Icy Moondrops"
+      },
+      {
+        "color": "rgb(210, 237, 241)",
+        "name": "Innocence"
+      },
+      {
+        "color": "rgb(176, 227, 233)",
+        "name": "Blue Sea Foam"
+      },
+      {
+        "color": "rgb(174, 225, 234)",
+        "name": "Serenity"
+      },
+      {
+        "color": "rgb(170, 224, 223)",
+        "name": "San Clemente Teal"
+      },
+      {
+        "color": "rgb(165, 215, 220)",
+        "name": "Sea Isle"
+      },
+      {
+        "color": "rgb(236, 237, 233)",
+        "name": "Decorator's White"
+      }
+    ]
+  },
+  {
+    "name": "Master Bedroom",
+    "colors": [
+      "rgb(175, 19, 7)",
+      {
+        "color": "rgb(246, 246, 237)",
+        "name": "Simply White"
+      },
+      {
+        "color": "rgb(237, 238, 235)",
+        "name": "White"
+      },
+      {
+        "color": "rgb(247, 245, 235)",
+        "name": "Mountain Peak White"
+      }
+    ]
+  }
+]

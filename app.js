@@ -1,7 +1,6 @@
-const defaultColors = ['#000000', '#FF0000', '#000080', '#FFFF00', '#FFFFFF'];
 let palettes = [];
 
-function addPalette(name = 'New Palette', colors = [...defaultColors]) {
+function addPalette(name = 'New Palette', colors = []) {
     const palette = new ColorPalette(name, colors);
     const paletteElement = palette.createElement();
     document.getElementById('palettesContainer').appendChild(paletteElement);
@@ -26,13 +25,7 @@ document.addEventListener('paletteRefresh', (event) => {
 function exportConfig() {
     const config = palettes.map(palette => ({
         name: palette.name,
-        colors: palette.colors.map(color => {
-            if (typeof color === 'string') {
-                return color;
-            } else {
-                return { color: color.color, name: color.name };
-            }
-        })
+        colors: palette.colors
     }));
     return JSON.stringify(config, null, 2);
 }
@@ -43,14 +36,7 @@ function importConfig(configJson) {
         document.getElementById('palettesContainer').innerHTML = '';
         palettes = [];
         config.forEach(palette => {
-            const colors = palette.colors.map(color => {
-                if (typeof color === 'string') {
-                    return color;
-                } else {
-                    return { color: color.color, name: color.name };
-                }
-            });
-            addPalette(palette.name, colors);
+            addPalette(palette.name, palette.colors);
         });
         refreshAllPalettes();
     } catch (error) {
@@ -106,16 +92,30 @@ window.addEventListener('resize', () => {
     refreshAllPalettes();
 });
 
-// Initialize with one palette
-document.addEventListener('DOMContentLoaded', () => {
-    const initialPalette = addPalette();
+// Initialize the app
+function initializeApp() {
+    fetch('default-config.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text(); // Get the raw text instead of parsing JSON
+        })
+        .then(text => {
+            console.log("Fetched text:", text); // Log the fetched text
+            const data = JSON.parse(text); // Parse the text to JSON
+            importConfig(JSON.stringify(data));
+        })
+        .catch(error => {
+            console.error('Error loading default configuration:', error);
+            console.error('Error details:', error.message);
+            // Fallback to a simple default palette if the file can't be loaded
+            importConfig(JSON.stringify([{name: 'Default Palette', colors: ['#000000', '#FF0000', '#0000FF', '#FFFF00', '#FFFFFF']}]));
+        });
+}
 
-    // Force a refresh after a short delay to ensure proper rendering
-    setTimeout(() => {
-        initialPalette.render();
-        refreshAllPalettes();
-    }, 100);
-});
+// Call initializeApp when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initializeApp);
 
 // MutationObserver to watch for changes in the palettes container
 const palettesContainer = document.getElementById('palettesContainer');
