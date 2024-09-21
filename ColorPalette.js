@@ -193,15 +193,25 @@ class ColorPalette {
         const colorNameInput = colorPicker.querySelector('#colorNameInput');
         const applyColorBtn = colorPicker.querySelector('#applyColorBtn');
 
-        colorInput.value = rgbToHex(currentColor);
+        const originalColor = rgbToHex(currentColor);
+        colorInput.value = originalColor;
         colorNameInput.value = currentName;
 
+        let tempColor = originalColor;
+        let tempName = currentName;
+
         colorInput.addEventListener('input', (e) => {
-            this.updatePatchColor(patch, e.target.value, colorNameInput.value);
+            tempColor = e.target.value;
+            this.updatePatchColor(patch, tempColor, tempName, true);
+        });
+
+        colorNameInput.addEventListener('input', (e) => {
+            tempName = e.target.value;
+            this.updatePatchColor(patch, tempColor, tempName, true);
         });
 
         applyColorBtn.addEventListener('click', () => {
-            this.updatePatchColor(patch, colorInput.value, colorNameInput.value);
+            this.updatePatchColor(patch, tempColor, tempName);
             document.body.removeChild(colorPicker);
         });
 
@@ -229,6 +239,7 @@ class ColorPalette {
         // Add event listener to close the color picker when clicking outside
         const closeColorPicker = (e) => {
             if (!colorPicker.contains(e.target) && !patch.contains(e.target)) {
+                this.updatePatchColor(patch, originalColor, currentName);
                 document.body.removeChild(colorPicker);
                 document.removeEventListener('click', closeColorPicker);
             }
@@ -240,7 +251,7 @@ class ColorPalette {
         }, 0);
     }
 
-    updatePatchColor(patch, newColor, colorName = '') {
+    updatePatchColor(patch, newColor, colorName = '', isTemporary = false) {
         const patchContent = patch.querySelector('.color-patch-content');
         patchContent.style.backgroundColor = newColor;
         const hexColor = rgbToHex(newColor);
@@ -265,9 +276,11 @@ class ColorPalette {
         colorCode.style.color = textColor;
         patch.querySelector('.ellipsis-button').style.color = textColor;
 
-        this.updateColors();
-        this.render();
-        this.triggerRefreshEvent();
+        if (!isTemporary) {
+            this.updateColors();
+            this.render();
+            this.triggerRefreshEvent();
+        }
     }
 
     deleteColor(patch) {
