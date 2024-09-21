@@ -26,16 +26,17 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Import Configuration</h2>
-            <textarea id="importTextarea"></textarea>
+            <textarea id="importTextarea" rows="10"></textarea>
             <button id="applyImportBtn" class="add-button">Apply</button>
         </div>
     </div>
 
-    <div id="colorMenu" class="color-menu">
+    <div id="colorMenu" class="color-menu" data-popper-placement="bottom">
         <button id="openPickerBtn">Open Color Picker</button>
         <button id="deleteColorBtn">Delete Color</button>
     </div>
 
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="utils.js"></script>
     <script src="ColorPalette.js"></script>
     <script src="app.js"></script>

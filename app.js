@@ -128,3 +128,34 @@ const observer = new MutationObserver((mutations) => {
 });
 
 observer.observe(palettesContainer, { childList: true, subtree: true });
+
+// Add copy-paste functionality
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'c') {
+        const activePalette = palettes.find(p => p.selectedPatch);
+        if (activePalette && activePalette.selectedPatch) {
+            const selectedPatch = activePalette.selectedPatch;
+            const colorData = {
+                color: selectedPatch.querySelector('.color-patch-content').style.backgroundColor,
+                name: selectedPatch.querySelector('.color-name')?.textContent || ''
+            };
+            localStorage.setItem('copiedColor', JSON.stringify(colorData));
+        }
+    } else if (e.ctrlKey && e.key === 'v') {
+        const activePalette = palettes.find(p => p.selectedPatch);
+        if (activePalette) {
+            const copiedColorData = JSON.parse(localStorage.getItem('copiedColor'));
+            if (copiedColorData) {
+                const newPatch = activePalette.createColorPatch(copiedColorData);
+                const selectedPatch = activePalette.selectedPatch;
+                const colorGrid = selectedPatch.parentElement;
+                const selectedIndex = Array.from(colorGrid.children).indexOf(selectedPatch);
+                colorGrid.insertBefore(newPatch, selectedPatch.nextSibling);
+                activePalette.selectPatch(newPatch);
+                activePalette.updateColors();
+                activePalette.render();
+                activePalette.triggerRefreshEvent();
+            }
+        }
+    }
+});
