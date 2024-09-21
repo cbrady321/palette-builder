@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <button id="addPaletteBtn" class="add-button">+ Add Palette</button>
+        <button id="exportBtn" class="export-button">Export</button>
+        <button id="importBtn" class="import-button">Import</button>
+        <div id="palettesContainer"></div>
+    </div>
+
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Export Configuration</h2>
+            <textarea id="configTextarea" readonly></textarea>
+        </div>
+    </div>
+
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Import Configuration</h2>
+            <textarea id="importTextarea"></textarea>
+            <button id="applyImportBtn" class="add-button">Apply</button>
+        </div>
+    </div>
+
+    <div id="colorMenu" class="color-menu">
+        <button id="openPickerBtn">Open Color Picker</button>
+        <button id="deleteColorBtn">Delete Color</button>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="ColorPalette.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
