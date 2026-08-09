@@ -11,7 +11,6 @@
         "color": "rgb(153, 11, 20)",
         "name": "Heritage Red"
       },
-      "rgb(175, 19, 7)",
       {
         "color": "rgb(246, 246, 237)",
         "name": "Simply White"
@@ -24,6 +23,14 @@
       {
         "color": "rgb(247, 245, 235)",
         "name": "Mountain Peak White"
+      },
+      {
+        "color": "rgb(250, 235, 205)",
+        "name": "Filtered Sunlight"
+      },
+      {
+        "color": "rgb(248, 241, 225)",
+        "name": "Butter Pecan"
       }
     ]
   },
@@ -33,6 +40,10 @@
       {
         "color": "rgb(246, 246, 237)",
         "name": "Simply White"
+      },
+      {
+        "color": "rgb(248, 241, 225)",
+        "name": "Butter Pecan"
       },
       {
         "color": "rgb(244, 246, 241)",
@@ -47,14 +58,25 @@
         "name": "Easter Lily"
       },
       {
+        "color": "rgb(250, 243, 224)",
+        "name": "Vanilla Ice Cream"
+      },
+      {
         "color": "rgb(248, 247, 232)",
         "name": "Mascarpone"
       },
       {
-        "color": "rgb(250, 243, 224)",
-        "name": "Vanilla Ice Cream"
+        "color": "rgb(250, 235, 205)",
+        "name": "Filtered Sunlight"
       },
-      "rgb(0, 0, 0)"
+      {
+        "color": "rgb(228, 223, 211)",
+        "name": "Gray Mist"
+      },
+      {
+        "color": "rgb(193, 191, 177)",
+        "name": "Winterwood"
+      }
     ]
   },
   {
@@ -65,8 +87,16 @@
         "name": "Mountain Peak White"
       },
       {
+        "color": "rgb(228, 223, 211)",
+        "name": "Gray Mist"
+      },
+      {
         "color": "rgb(246, 246, 237)",
         "name": "Simply White"
+      },
+      {
+        "color": "rgb(250, 235, 205)",
+        "name": "Filtered Sunlight"
       },
       "rgb(255, 255, 255)",
       "rgb(229, 229, 229)"
@@ -76,28 +106,12 @@
     "name": "Ariel",
     "colors": [
       {
-        "color": "rgb(211, 241, 240)",
-        "name": "Icy Moondrops"
-      },
-      {
-        "color": "rgb(210, 237, 241)",
-        "name": "Innocence"
-      },
-      {
         "color": "rgb(176, 227, 233)",
         "name": "Blue Sea Foam"
       },
       {
         "color": "rgb(174, 225, 234)",
         "name": "Serenity"
-      },
-      {
-        "color": "rgb(170, 224, 223)",
-        "name": "San Clemente Teal"
-      },
-      {
-        "color": "rgb(165, 215, 220)",
-        "name": "Sea Isle"
       },
       {
         "color": "rgb(236, 237, 233)",
@@ -109,28 +123,32 @@
     "name": "Master Bedroom",
     "colors": [
       {
-        "color": "rgb(47, 57, 75)",
-        "name": "Deep Royal"
+        "color": "rgb(91, 109, 146)",
+        "name": "Blue Nova"
       },
       {
-        "color": "rgb(61, 39, 0)",
-        "name": "Floor"
+        "color": "rgb(93, 106, 133)",
+        "name": "Blue Heron"
       },
       {
-        "color": "rgb(24, 94, 130)",
-        "name": "Bermuda Blue"
+        "color": "rgb(165, 183, 205)",
+        "name": "Sunrise"
+      },
+      {
+        "color": "rgb(246, 246, 237)",
+        "name": "Simply White"
       },
       {
         "color": "rgb(192, 193, 190)",
         "name": "Gray"
       },
       {
-        "color": "rgb(244, 246, 241)",
-        "name": "Chantilly Lace"
+        "color": "rgb(61, 39, 0)",
+        "name": "Floor"
       },
       {
-        "color": "rgb(246, 246, 237)",
-        "name": "Simply White"
+        "color": "rgb(244, 246, 241)",
+        "name": "Chantilly Lace"
       }
     ]
   },
@@ -149,7 +167,10 @@
         "color": "rgb(192, 193, 190)",
         "name": "Gray"
       },
-      "rgb(0, 0, 0)"
+      {
+        "color": "rgb(248, 241, 225)",
+        "name": "Butter Pecan"
+      }
     ]
   }
 ]

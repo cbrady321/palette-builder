@@ -30,6 +30,13 @@ body, html {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
+    gap: 12px;
+}
+
+.palette-header-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .palette-name {
@@ -123,6 +130,39 @@ body, html {
 
 .ellipsis-button:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.delete-palette-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.delete-palette-btn:hover {
+    background-color: #d32f2f;
+}
+
+.reset-button {
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #546E7A;
 }
 
 .add-button, .export-button, .import-button {

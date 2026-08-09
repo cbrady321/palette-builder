@@ -11,47 +11,35 @@
         <button id="addPaletteBtn" class="add-button">+ Add Palette</button>
         <button id="exportBtn" class="export-button">Export</button>
         <button id="importBtn" class="import-button">Import</button>
+        <button id="resetBtn" class="reset-button">Reset to Defaults</button>
         <div id="palettesContainer"></div>
     </div>
 
-    <div id="exportModal" class="modal">
+    <div id="exportModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Export Configuration</h2>
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="exportModalTitle">Export Configuration</h2>
             <textarea id="configTextarea" readonly></textarea>
         </div>
     </div>
 
-    <div id="importModal" class="modal">
+    <div id="importModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="importModalTitle">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Import Configuration</h2>
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="importModalTitle">Import Configuration</h2>
             <textarea id="importTextarea" rows="10"></textarea>
             <button id="applyImportBtn" class="add-button">Apply</button>
         </div>
     </div>
 
     <div id="colorMenu" class="color-menu" data-popper-placement="bottom">
-        <button id="openPickerBtn">Open Color Picker</button>
-        <button id="deleteColorBtn">Delete Color</button>
+        <button id="openPickerBtn" aria-label="Open color picker">Open Color Picker</button>
+        <button id="deleteColorBtn" aria-label="Delete this color">Delete Color</button>
     </div>
 
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="utils.js"></script>
     <script src="ColorPalette.js"></script>
     <script src="app.js"></script>
-    <script>
-        // Load default configuration
-        fetch('default-config.json')
-            .then(response => response.json())
-            .then(data => {
-                window.defaultConfig = data;
-                initializeApp();
-            })
-            .catch(error => {
-                console.error('Error loading default configuration:', error);
-                initializeApp();
-            });
-    </script>
 </body>
 </html>

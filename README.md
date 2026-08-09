@@ -8,10 +8,14 @@ Color Palette Builder is a web-based application that allows users to create, ma
 
 - Create multiple color palettes
 - Add, edit, and delete colors within each palette
+- Delete entire palettes
 - Name individual colors for easy reference
 - Automatic adjustment of color patch sizes for optimal viewing
 - Real-time color picker for precise color selection
 - Export and import palette configurations for easy sharing and backup
+- Automatic localStorage persistence across page refreshes
+- Copy/paste colors with keyboard shortcuts
+- Drag-and-drop to reorder colors or copy between palettes
 - Responsive design that works on various screen sizes
 
 ## Getting Started
@@ -19,63 +23,96 @@ Color Palette Builder is a web-based application that allows users to create, ma
 ### Prerequisites
 
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
-- No additional software installation is required
+- A local web server (required for loading default configuration via fetch)
 
 ### Installation
 
 1. Download the project files to your local machine.
-2. Unzip the files if they are in a compressed format.
-3. Open the `index.html` file in your web browser.
+2. Start a local server from the project directory, for example:
+   ```bash
+   python -m http.server 8000
+   ```
+3. Open `http://localhost:8000` in your web browser.
 
 ## Usage
 
+### First Load
+
+On first open, the app loads palettes from `default-config.json`. After you make changes, your palettes are saved automatically to browser localStorage and restored on refresh.
+
 ### Creating a New Palette
 
-1. When you first open the application, you'll see an empty palette.
-2. Click the "+ Add Palette" button to create additional palettes.
+Click the **+ Add Palette** button to create an additional palette.
 
 ### Adding Colors to a Palette
 
-1. In a palette, click the "+ Add Color" button.
-2. A new color patch will be added with a default black color.
+1. In a palette, click **+ Add Color**.
+2. A new color patch is added with a default black color, inserted after the currently selected patch if one is selected.
 
 ### Editing a Color
 
-1. Click the "⋮" (ellipsis) button on a color patch.
-2. Select "Open Color Picker" from the menu.
-3. Use the color picker to choose your desired color.
-4. Optionally, enter a name for the color in the text field.
-5. Click "Apply" to save your changes.
+1. Click the **⋮** (ellipsis) button on a color patch.
+2. Select **Open Color Picker** from the menu.
+3. Choose a color and optionally enter a name.
+4. Click **Apply** to save, or click outside the picker to cancel.
+5. Press **Escape** to cancel the picker, close the color menu, or close a modal.
 
 ### Deleting a Color
 
-1. Click the "⋮" (ellipsis) button on a color patch.
-2. Select "Delete Color" from the menu.
+1. Click the **⋮** button on a color patch.
+2. Select **Delete Color**.
+
+### Deleting a Palette
+
+Click **Delete Palette** in the palette header and confirm the dialog.
+
+### Copy and Paste
+
+1. Click a color patch to select it (green outline).
+2. Press **Ctrl+C** (Windows/Linux) or **Cmd+C** (Mac) to copy the color.
+3. Select a patch in the target palette and press **Ctrl+V** or **Cmd+V** to paste after it.
+
+Shortcuts are disabled while typing in input fields.
+
+### Drag and Drop
+
+- **Within a palette:** drag a patch to reorder colors.
+- **Between palettes:** drag a patch to another palette to **copy** the color (the source palette keeps the original).
 
 ### Exporting Palettes
 
-1. Click the "Export" button at the top of the page.
-2. A modal will appear with a JSON representation of your palettes.
-3. Copy this JSON or save it to a file for later use.
+1. Click **Export**.
+2. Copy the JSON from the modal or save it to a file.
 
 ### Importing Palettes
 
-1. Click the "Import" button at the top of the page.
-2. Paste a previously exported JSON configuration into the text area.
-3. Click "Apply" to load the imported palettes.
+1. Click **Import**.
+2. Paste a previously exported JSON configuration.
+3. Click **Apply**. The modal stays open if the JSON is invalid; existing palettes are preserved on failure.
+
+### Reset to Defaults
+
+Click **Reset to Defaults** to clear saved localStorage data and reload palettes from `default-config.json`.
 
 ## Tips
 
-- The color patches will automatically resize to fit the screen width while maintaining a minimum size for usability.
-- In single-row palettes, color patches will maintain a square aspect ratio for optimal viewing.
-- Color names are optional but can be helpful for organizing and remembering specific colors.
-- Use the export feature to backup your palettes or share them with others.
+- Color patches automatically resize to fit the screen width while maintaining a minimum size.
+- In single-row palettes, patches maintain a square aspect ratio.
+- Color names are optional but helpful for organization.
+- Exported colors are stored as normalized hex values.
+- Use export to backup palettes or share them with others.
+
+## Dependencies
+
+- [Popper.js](https://popper.js.org/) v2.11.8, loaded from unpkg CDN for positioning the color menu and picker.
 
 ## Troubleshooting
 
+- If palettes do not load, ensure you are using a local web server (not opening `index.html` directly as a file).
 - If colors are not displaying correctly, try refreshing the page.
-- If the import function fails, ensure that the JSON format is correct and matches the export format.
-- For any persistent issues, try clearing your browser cache and reloading the page.
+- If import fails, ensure the JSON format matches the export format.
+- Use **Reset to Defaults** to recover from corrupted localStorage data.
+- For persistent issues, clear your browser cache and reload.
 
 ## Contributing
 
@@ -83,8 +120,4 @@ This is an open-source project. If you'd like to contribute, please fork the rep
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
----
-
-We hope you enjoy using the Color Palette Builder! If you have any questions or feedback, please don't hesitate to reach out.
+This project is licensed under the MIT License — see the [LICENSE.md](LICENSE.md) file for details.
